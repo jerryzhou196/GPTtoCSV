@@ -60,7 +60,6 @@ function exportGPT() {
     let csv = Papa.unparse(data)
     var csvData = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
 
-    console.log(Papa)
     csvURL = window.URL.createObjectURL(csvData);
 
     var tempLink = document.createElement('a');
