@@ -4,28 +4,28 @@ let data = [
 ];
 
 let temp;
-var prev;
+var prev = "";
+var count = 0;
 
 function handleChange(div) {
 
     var p = $('p', div);
 
-    if (count % 0) {
+    if (count % 2 == 0) {
         if (p.toArray().length == 0) {
-            prev = "div.innerHTML"
+            prev = div.innerHTML;
             console.log("PROMPT: " + div.innerHTML)
         }
     } else {
         if (p.toArray().length > 1) {
-            p.toArray().forEach((pp) => (data.push({ "Question": pp.innerHTML, "Response": pp.innerHTML })));
+            p.toArray().forEach((pp) => (data.push({ "Question": prev, "Response": pp.innerHTML })));
         } else {
             console.log("RESPONSE: " + p.html())
             data.push({ "Question": prev, "Response": p.html() })
         }
         prev = ""
-
     }
-
+    ++count
 }
 
 
